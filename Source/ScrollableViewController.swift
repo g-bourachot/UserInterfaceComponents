@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScrollableViewController: UIViewController, UIScrollViewDelegate {
+public class ScrollableViewController: UIViewController, UIScrollViewDelegate {
     
     enum CompletionAction {
         case close
@@ -19,17 +19,17 @@ class ScrollableViewController: UIViewController, UIScrollViewDelegate {
     private let scrollView = UIScrollView()
     private var isAnimatingOnBoarding = false
     
-    var addPagingIndicatorView : Bool = false
-    var pageIndicatorFrameHeight : CGFloat = 50
-    var showOnBoardingAnimation : Bool = true
-    var contentViewControllers: [UIViewController] = []
-    var startingAnimationDelay = 0.0
-    var halfwayAnimationDelay = 0.0
-    var swippingWidthRatio = 0.1
-    var startingIndex = 0
-    var completionHandler: ((_ action : CompletionAction)->())? = nil
-    var mainActionImage: UIImage? = nil
-    var displayedViewController: UIViewController? = nil
+    public var addPagingIndicatorView : Bool = false
+    public var pageIndicatorFrameHeight : CGFloat = 50
+    public var showOnBoardingAnimation : Bool = true
+    public var contentViewControllers: [UIViewController] = []
+    public var startingAnimationDelay = 0.0
+    public var halfwayAnimationDelay = 0.0
+    public var swippingWidthRatio = 0.1
+    public var startingIndex = 0
+    public var completionHandler: ((_ action : CompletionAction)->())? = nil
+    public var mainActionImage: UIImage? = nil
+    public var displayedViewController: UIViewController? = nil
     private var pageIndicator = GBCollectionViewPagingView()
     
     //MARK: - Life cycle

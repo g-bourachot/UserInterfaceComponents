@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-class ScrollViewTouches : UIScrollView {
+public class ScrollViewTouches : UIScrollView {
     
-    var editableFrame : CGRect = CGRect.zero
-    var containerView : UIView?
-    var completionHandler : (() -> ())?
+    public var editableFrame : CGRect = CGRect.zero
+    public var containerView : UIView?
+    public var completionHandler : (() -> ())?
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first

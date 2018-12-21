@@ -9,43 +9,43 @@
 import Foundation
 import UIKit
 
-@IBDesignable class GBCollectionViewPagingView: UIView {
+@IBDesignable public class GBCollectionViewPagingView: UIView {
     
     //MARK: - Variables
-    @IBInspectable var filledColor:UIColor = UIColor.red {
+    @IBInspectable public var filledColor:UIColor = UIColor.red {
         didSet{
             self.setNeedsLayout()
         }
     }
-    @IBInspectable var emptyColor:UIColor = UIColor.blue{
+    @IBInspectable public var emptyColor:UIColor = UIColor.blue{
         didSet{
             self.setNeedsLayout()
         }
     }
-    @IBInspectable var contentHeight:CGFloat = 20.0{
+    @IBInspectable public var contentHeight:CGFloat = 20.0{
         didSet{
             self.setNeedsLayout()
         }
     }
-    @IBInspectable var indicatorSpacing: CGFloat = 0.0 {
+    @IBInspectable public var indicatorSpacing: CGFloat = 0.0 {
         didSet {
             self.setNeedsLayout()
         }
     }
-    @IBInspectable var numberOfPage: Int = 5 {
+    @IBInspectable public var numberOfPage: Int = 5 {
         didSet{
             self.populatePageIndicatorLayers(pageCount: numberOfPage)
             self.setNeedsLayout()
         }
     }
-    @IBInspectable var selectedPage: Int = 1 {
+    @IBInspectable public var selectedPage: Int = 1 {
         didSet{
             self.select(pageNumber: selectedPage)
             self.setNeedsLayout()
         }
     }
     private var pageIndicatorLayers : [CAShapeLayer] = []
-    var intrinsicContentWidth: CGFloat = 0.0
+    public var intrinsicContentWidth: CGFloat = 0.0
     
     //MARK: - Life cycle
     init(pageCount: Int, frame:CGRect){

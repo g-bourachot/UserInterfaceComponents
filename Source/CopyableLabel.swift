@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CopyableLabel : UILabel {
+public class CopyableLabel : UILabel {
     
     override public var canBecomeFirstResponder: Bool {
         get {
@@ -35,12 +35,12 @@ class CopyableLabel : UILabel {
         ))
     }
     
-    override func copy(_ sender: Any?) {
+    override public func copy(_ sender: Any?) {
         UIPasteboard.general.string = text
         UIMenuController.shared.setMenuVisible(false, animated: true)
     }
     
-    @objc func showMenu(sender: Any?) {
+    @objc public func showMenu(sender: Any?) {
         becomeFirstResponder()
         let menu = UIMenuController.shared
         if !menu.isMenuVisible {
@@ -49,7 +49,7 @@ class CopyableLabel : UILabel {
         }
     }
     
-    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+    override public func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         return (action == #selector(copy(_:)))
     }
 }

@@ -9,25 +9,25 @@
 import Foundation
 import UIKit
 
-@IBDesignable class GBCircularProgressView : UIView {
+@IBDesignable public class GBCircularProgressView : UIView {
     
     //MARK: - Variables
-    @IBInspectable var progressColor:UIColor = UIColor.green {
+    @IBInspectable public var progressColor:UIColor = UIColor.green {
         didSet{
             self.setNeedsLayout()
         }
     }
-    @IBInspectable var trackColor:UIColor = UIColor.gray {
+    @IBInspectable public var trackColor:UIColor = UIColor.gray {
         didSet{
             self.setNeedsLayout()
         }
     }
-    @IBInspectable var trackWidth:CGFloat = 1.0{
+    @IBInspectable public var trackWidth:CGFloat = 1.0{
         didSet{
             self.setNeedsLayout()
         }
     }
-    var progress: Float = 0.5 {
+    public var progress: Float = 0.5 {
         didSet(newValue) {
             self.refreshUI()
         }

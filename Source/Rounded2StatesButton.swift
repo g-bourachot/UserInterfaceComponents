@@ -13,7 +13,7 @@ protocol Rounded2StateButtonDelegate : class {
     func didTouchControl(sender: Rounded2StateButton)
 }
 
-@IBDesignable class Rounded2StateButton : UIControl {
+@IBDesignable public class Rounded2StateButton : UIControl {
     
     enum CheckState {
         case checked
@@ -26,15 +26,15 @@ protocol Rounded2StateButtonDelegate : class {
     }
     
     //MARK: - Variables
-    let imageViewLeading : UIImageView = UIImageView(frame: CGRect.zero)
-    let imageViewTrailing : UIImageView = UIImageView(frame: CGRect.zero)
-    let contentStackView = UIStackView()
-    let titleLabel : UILabel = UILabel(frame: CGRect.zero)
-    let borderWidth : CGFloat = 2.0
-    let color : UIColor = UIColor.black
+    public let imageViewLeading : UIImageView = UIImageView(frame: CGRect.zero)
+    public let imageViewTrailing : UIImageView = UIImageView(frame: CGRect.zero)
+    public let contentStackView = UIStackView()
+    public let titleLabel : UILabel = UILabel(frame: CGRect.zero)
+    public let borderWidth : CGFloat = 2.0
+    public let color : UIColor = UIColor.black
     weak var delegate : Rounded2StateButtonDelegate?
     
-    var title : String? {
+    public var title : String? {
         didSet {
             if self.titleLabel.text != self.title {
                 self.titleLabel.text = self.title
@@ -46,7 +46,7 @@ protocol Rounded2StateButtonDelegate : class {
     
     private let offset : (x:CGFloat, y:CGFloat) = (10.0, 5.0)
     
-    var checkState : CheckState = .unchecked {
+    public var checkState : CheckState = .unchecked {
         didSet {
             switch self.checkState {
             case .checked:
@@ -58,7 +58,7 @@ protocol Rounded2StateButtonDelegate : class {
         }
     }
     //MARK: - Inspectable variables
-    @IBInspectable var titleLocalizationKey : String? {
+    @IBInspectable public var titleLocalizationKey : String? {
         didSet {
             if let key = self.titleLocalizationKey {
                 #if TARGET_INTERFACE_BUILDER
@@ -70,18 +70,18 @@ protocol Rounded2StateButtonDelegate : class {
             }
         }
     }
-    @IBInspectable var selectedColor = UIColor.red {
+    @IBInspectable public var selectedColor = UIColor.red {
         didSet {
             self.refreshUI()
         }
     }
-    @IBInspectable var unSelectedColor = UIColor.white {
+    @IBInspectable public var unSelectedColor = UIColor.white {
         didSet {
             self.refreshUI()
         }
     }
     
-    @IBInspectable var imagePositionRaw : Int {
+    @IBInspectable public var imagePositionRaw : Int {
         get {
             return self.imagePosition.rawValue
         }
@@ -89,7 +89,7 @@ protocol Rounded2StateButtonDelegate : class {
             self.imagePosition = ImagePosition(rawValue: value)!
         }
     }
-    var imagePosition = Rounded2StateButton.ImagePosition.leading {
+    public var imagePosition = Rounded2StateButton.ImagePosition.leading {
         didSet {
             switch self.imagePosition {
             case .leading:
@@ -102,11 +102,11 @@ protocol Rounded2StateButtonDelegate : class {
         }
     }
     
-    @IBInspectable var cornerRadius : Int = 0
+    @IBInspectable public var cornerRadius : Int = 0
     
-    @IBInspectable var changeRadius : Bool = false
+    @IBInspectable public var changeRadius : Bool = false
     
-    var image : UIImage? {
+    public var image : UIImage? {
         didSet {
             self.imageViewLeading.image = image
             self.imageViewTrailing.image = image
@@ -114,10 +114,10 @@ protocol Rounded2StateButtonDelegate : class {
         }
     }
     
-    @IBInspectable var selectedImage : UIImage?
-    @IBInspectable var unselectedImage : UIImage?
+    @IBInspectable public var selectedImage : UIImage?
+    @IBInspectable public var unselectedImage : UIImage?
     
-    var font = UIFont.systemFont(ofSize: 18, weight: .light) {
+    public var font = UIFont.systemFont(ofSize: 18, weight: .light) {
         didSet {
             self.titleLabel.font = self.font
         }
@@ -214,16 +214,16 @@ protocol Rounded2StateButtonDelegate : class {
         }
     }
     
-    func refreshUI() {
+    public func refreshUI() {
         self.setNeedsDisplay()
     }
     
-    func updateFrameSize() {
+    public func updateFrameSize() {
         self.titleLabel.sizeToFit()
         self.frame.size = CGSize.init(width: self.titleLabel.frame.size.width+self.offset.x*2, height: self.titleLabel.frame.size.height+self.offset.y*2)
     }
     
-    @objc func toggleCheckState() {
+    @objc public func toggleCheckState() {
         self.delegate?.didTouchControl(sender: self)
         if case .unchecked = self.checkState {
             self.checkState = .checked
@@ -231,7 +231,7 @@ protocol Rounded2StateButtonDelegate : class {
             self.checkState = .unchecked
         }
     }
-    func uncheck() {
+    public func uncheck() {
         self.checkState = .unchecked
     }
 }
