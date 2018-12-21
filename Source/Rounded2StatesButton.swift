@@ -15,12 +15,12 @@ protocol Rounded2StateButtonDelegate : class {
 
 @IBDesignable public class Rounded2StateButton : UIControl {
     
-    enum CheckState {
+    public enum CheckState {
         case checked
         case unchecked
     }
     
-    enum ImagePosition : Int {
+    public enum ImagePosition : Int {
         case leading
         case trailing
     }
@@ -194,7 +194,7 @@ protocol Rounded2StateButtonDelegate : class {
         }
     }
     
-    override func draw(_ rect: CGRect) {
+    override public func draw(_ rect: CGRect) {
         (self.backgroundColor ?? UIColor.clear).set()
         
         var drawFrame : CGRect

@@ -84,7 +84,7 @@ import UIKit
     }
     
     //MARK: - Layout
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         self.setUp()
         self.refreshUI()
     }

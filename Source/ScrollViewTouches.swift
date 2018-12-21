@@ -15,7 +15,7 @@ public class ScrollViewTouches : UIScrollView {
     public var containerView : UIView?
     public var completionHandler : (() -> ())?
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
         guard let parentView = self.containerView, let location = touch?.location(in: parentView) else { return }
         if !self.editableFrame.contains(location) {

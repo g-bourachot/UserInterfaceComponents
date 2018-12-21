@@ -90,7 +90,7 @@ import UIKit
     }
     
     //MARK: - Layout    
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         let spaceBetweenPageIndicators = self.indicatorSpacing + (self.indicatorSpacing/CGFloat(self.numberOfPage))
         
@@ -99,13 +99,13 @@ import UIKit
             layer.path = self.circleShape().cgPath
         }
     }
-    override var intrinsicContentSize: CGSize {
+    override public var intrinsicContentSize: CGSize {
         let spaceBetweenPageIndicators = self.indicatorSpacing + (self.indicatorSpacing/CGFloat(self.numberOfPage))
         self.intrinsicContentWidth = CGFloat(self.numberOfPage)*(contentHeight+spaceBetweenPageIndicators)-spaceBetweenPageIndicators
         return CGSize(width: self.intrinsicContentWidth, height: self.contentHeight)
     }
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         self.selectedPage = 0
     }

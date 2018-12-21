@@ -10,7 +10,7 @@ import UIKit
 
 public class ScrollableViewController: UIViewController, UIScrollViewDelegate {
     
-    enum CompletionAction {
+    public enum CompletionAction {
         case close
         case mainAction
     }
@@ -33,7 +33,7 @@ public class ScrollableViewController: UIViewController, UIScrollViewDelegate {
     private var pageIndicator = GBCollectionViewPagingView()
     
     //MARK: - Life cycle
-    override func viewDidLoad(){
+    override public func viewDidLoad(){
         super.viewDidLoad()
         self.scrollView.contentInsetAdjustmentBehavior = .never
         scrollView.delegate = self
@@ -49,7 +49,7 @@ public class ScrollableViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if showOnBoardingAnimation {
             let width: CGFloat = CGFloat(contentViewControllers.count) * self.view.bounds.size.width
@@ -64,7 +64,7 @@ public class ScrollableViewController: UIViewController, UIScrollViewDelegate {
         self.setUpNavigationBar()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if showOnBoardingAnimation && self.contentViewControllers.count > 1{
             DispatchQueue.main.asyncAfter(deadline: .now() + self.startingAnimationDelay) {
@@ -95,13 +95,13 @@ public class ScrollableViewController: UIViewController, UIScrollViewDelegate {
     }
     
     //MARK: - UIScrollViewDelegate
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    private func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let fromIndex = floor(scrollView.bounds.origin.x  / scrollView.bounds.size.width)
         let toIndex = floor((scrollView.bounds.maxX - 1) / scrollView.bounds.size.width)
         layoutViewController(fromIndex: Int(fromIndex), toIndex: Int(toIndex))
     }
     
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+    private func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         if isAnimatingOnBoarding {
             DispatchQueue.main.asyncAfter(deadline: .now() + self.halfwayAnimationDelay) {
                 self.isAnimatingOnBoarding = false
@@ -111,12 +111,12 @@ public class ScrollableViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    private func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let offset = round(targetContentOffset.pointee.x / self.view.bounds.size.width) * self.view.bounds.size.width
         targetContentOffset.pointee.x = offset
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    private func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if !isAnimatingOnBoarding {
             self.pageIndicator.selectedPage = Int(floor((self.scrollView.contentOffset.x - self.scrollView.bounds.size.width / 2) / self.scrollView.bounds.size.width) + 1)
         }
