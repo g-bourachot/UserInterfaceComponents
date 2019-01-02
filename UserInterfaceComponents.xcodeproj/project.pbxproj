@@ -16,6 +16,12 @@
 		27018BFC21CD2E83007AF0D0 /* Rounded2StatesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27018BF621CD2E83007AF0D0 /* Rounded2StatesButton.swift */; };
 		27018BFD21CD2E83007AF0D0 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27018BF721CD2E83007AF0D0 /* CopyableLabel.swift */; };
 		27018BFE21CD2E83007AF0D0 /* ScrollViewTouches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27018BF821CD2E83007AF0D0 /* ScrollViewTouches.swift */; };
+		2763764C21DCBA1A00CC9AEE /* GBCircularProgressView.swift in Headers */ = {isa = PBXBuildFile; fileRef = 27018BF321CD2E83007AF0D0 /* GBCircularProgressView.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		2763764D21DCBA3A00CC9AEE /* ScrollableViewController.swift in Headers */ = {isa = PBXBuildFile; fileRef = 27018BF421CD2E83007AF0D0 /* ScrollableViewController.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		2763764E21DCBA3A00CC9AEE /* GBCollectionViewPagingView.swift in Headers */ = {isa = PBXBuildFile; fileRef = 27018BF521CD2E83007AF0D0 /* GBCollectionViewPagingView.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		2763764F21DCBA3A00CC9AEE /* Rounded2StatesButton.swift in Headers */ = {isa = PBXBuildFile; fileRef = 27018BF621CD2E83007AF0D0 /* Rounded2StatesButton.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		2763765021DCBA3A00CC9AEE /* CopyableLabel.swift in Headers */ = {isa = PBXBuildFile; fileRef = 27018BF721CD2E83007AF0D0 /* CopyableLabel.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		2763765121DCBA3A00CC9AEE /* ScrollViewTouches.swift in Headers */ = {isa = PBXBuildFile; fileRef = 27018BF821CD2E83007AF0D0 /* ScrollViewTouches.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +126,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				27018BE921CD2E11007AF0D0 /* UserInterfaceComponents.h in Headers */,
+				2763764C21DCBA1A00CC9AEE /* GBCircularProgressView.swift in Headers */,
+				2763764D21DCBA3A00CC9AEE /* ScrollableViewController.swift in Headers */,
+				2763764E21DCBA3A00CC9AEE /* GBCollectionViewPagingView.swift in Headers */,
+				2763764F21DCBA3A00CC9AEE /* Rounded2StatesButton.swift in Headers */,
+				2763765021DCBA3A00CC9AEE /* CopyableLabel.swift in Headers */,
+				2763765121DCBA3A00CC9AEE /* ScrollViewTouches.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
